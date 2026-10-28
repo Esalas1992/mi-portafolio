@@ -1,0 +1,328 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Tokens para utilidades de la UI (usadas p. ej. en el FAQ con text-primary / text-muted-foreground) */
+@theme {
+  --color-primary: #0e7490;
+  --color-muted-foreground: #4b5563;
+}
+
+.dark {
+  --color-primary: #00d2ff;
+  --color-muted-foreground: #9ca3af;
+}
+
+:root {
+  --navbar-height: 4rem; /* h-16 del header sticky */
+  --accent: #00d2ff;
+  --surface: #071014;
+  --card: #121218;
+  --input: #0d0d12;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(0, 210, 255, 0.35);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #00d2ff;
+  color: #071014;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 1px solid #00d2ff;
+  outline-offset: 2px;
+}
+
+/* Hero a viewport completo menos el navbar sticky (100dvh con fallback a 100vh) */
+.hero-viewport {
+  min-height: calc(100vh - var(--navbar-height));
+  min-height: calc(100dvh - var(--navbar-height));
+}
+
+/* ── Hero HUD: tracker que hace "lock" secuencial sobre los stages ─────────
+   Estado base = todos los nodos visibles en cian tenue, para que sin
+   animación (prefers-reduced-motion) siga leyéndose como un diagrama. */
+.hud-node {
+  --hud-edge: rgba(0, 210, 255, 0.45);
+  --hud-edge-hot: rgba(0, 210, 255, 0.95);
+  --hud-lock: #ff3b3b;
+  transform: translate(-50%, -50%);
+}
+
+/* Trazos del diagrama: oscuros en claro, cian en oscuro */
+.hud-panel {
+  --hud-1: rgba(24, 24, 27, 0.18);
+  --hud-2: rgba(14, 116, 144, 0.42);
+  --hud-3: rgba(14, 116, 144, 0.6);
+}
+.dark .hud-panel {
+  --hud-1: rgba(255, 255, 255, 0.08);
+  --hud-2: rgba(0, 210, 255, 0.2);
+  --hud-3: rgba(0, 210, 255, 0.38);
+}
+.hud-l1 {
+  stroke: var(--hud-1);
+}
+.hud-l2 {
+  stroke: var(--hud-2);
+}
+.hud-l3 {
+  stroke: var(--hud-3);
+}
+
+.hud-corner {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-color: var(--hud-edge);
+}
+
+.hud-tag {
+  opacity: 0.85;
+}
+
+.hud-meta {
+  opacity: 0;
+}
+
+/* sin animación (reduced motion) la scanline no debe quedar fija arriba */
+.hud-scan {
+  opacity: 0;
+}
+
+/* z-index scale: nav 40, mobile menu 50, grain 60 */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .spin-slow {
+    animation: spin 46s linear infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .pulse-dot {
+    animation: pulse-dot 2.4s ease-in-out infinite;
+  }
+  .float-soft {
+    animation: float-soft 5s ease-in-out infinite;
+  }
+  .mouse-float {
+    animation: mouse-float 1.8s ease-in-out infinite;
+  }
+  @keyframes mouse-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(7px);
+    }
+  }
+  .mouse-wheel-anim {
+    animation: wheel-slide 1.8s ease-in-out infinite;
+  }
+  @keyframes wheel-slide {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(6px);
+      opacity: 0.2;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes float-soft {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-9px);
+    }
+  }
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.35;
+    }
+  }
+  .skeleton {
+    position: relative;
+    overflow: hidden;
+    background: rgba(128, 128, 128, 0.18);
+  }
+  .skeleton::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, transparent 20%, rgba(0, 210, 255, 0.12) 50%, transparent 80%);
+    animation: shimmer 1.8s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Ciclo de lock: 4 nodos x 1.9 s = 7.6 s. Cada nodo arranca con --lock-delay
+     múltiplo del paso, así el turno se mantiene indefinidamente. */
+  .hud-corner {
+    animation: hud-edge 7.6s linear infinite;
+    animation-delay: var(--lock-delay, 0s);
+  }
+  @keyframes hud-edge {
+    0% {
+      border-color: var(--hud-edge);
+    }
+    0.6% {
+      border-color: var(--hud-lock);
+    }
+    2.6% {
+      border-color: var(--hud-lock);
+    }
+    4.5% {
+      border-color: var(--hud-edge-hot);
+    }
+    23% {
+      border-color: var(--hud-edge-hot);
+    }
+    27% {
+      border-color: var(--hud-edge);
+    }
+    100% {
+      border-color: var(--hud-edge);
+    }
+  }
+
+  .hud-tag {
+    animation: hud-tag 7.6s linear infinite;
+    animation-delay: var(--lock-delay, 0s);
+  }
+  @keyframes hud-tag {
+    0% {
+      opacity: 0.7;
+    }
+    0.6% {
+      opacity: 1;
+      text-shadow:
+        -1px 0 rgba(255, 59, 59, 0.85),
+        1px 0 rgba(0, 210, 255, 0.85);
+    }
+    3.5% {
+      text-shadow: none;
+    }
+    23% {
+      opacity: 1;
+    }
+    27% {
+      opacity: 0.7;
+    }
+    100% {
+      opacity: 0.7;
+    }
+  }
+
+  .hud-meta {
+    animation: hud-meta 7.6s linear infinite;
+    animation-delay: var(--lock-delay, 0s);
+  }
+  @keyframes hud-meta {
+    0% {
+      opacity: 0;
+      transform: translateY(-2px);
+    }
+    5% {
+      opacity: 0.85;
+      transform: translateY(0);
+    }
+    23% {
+      opacity: 0.85;
+      transform: translateY(0);
+    }
+    27% {
+      opacity: 0;
+      transform: translateY(-2px);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-2px);
+    }
+  }
+
+  /* pulso de datos corriendo por el circuito */
+  .hud-loop {
+    stroke-dasharray: 3 7;
+    animation: hud-flow 2.6s linear infinite;
+  }
+  @keyframes hud-flow {
+    to {
+      stroke-dashoffset: -20;
+    }
+  }
+
+  .hud-scan {
+    animation: hud-scan 6.5s linear infinite;
+  }
+  @keyframes hud-scan {
+    0% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    8% {
+      opacity: 0.28;
+    }
+    92% {
+      opacity: 0.28;
+    }
+    100% {
+      transform: translateY(400px);
+      opacity: 0;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "nav": {
+    "about": "Sobre",
+    "stack": "Tecnologías",
+    "exp": "Experiencia",
+    "contact": "Contactar",
+    "menu": "Menú",
+    "theme": "Tema",
+    "langLabel": "Idioma",
+    "main": "Principal"
+  },
+  "hero": {
+    "available": "Disponible para trabajar",
+    "eyebrow": "Hola, soy",
+    "nameA": "Eliezer",
+    "nameB": "Salas",
+    "descA": "Desarrollador ",
+    "descEmph": "full stack",
+    "descB": ". +10 años diseñando microservicios, datos en tiempo real y agentes de IA conversacional para banca y SaaS.",
+    "cta1": "Ver experiencia",
+    "cta2": "Contáctame",
+    "slotPhoto": "FOTO"
+  },
+  "about": {
+    "label": "SOBRE MÍ",
+    "title": "Construyendo sistemas robustos",
+    "photoTag": "RETRATO",
+    "photoPlace": "LIMA, PE",
+    "photoAlt": "Retrato de Eliezer Salas",
+    "p1": "Diseño sistemas backend que no se caen cuando el tráfico aprieta. Me especializo en APIs limpias, contratos de integración estables y arquitecturas de microservicios que otros equipos pueden consumir sin fricción.",
+    "p2": "A lo largo de mi carrera en banca y SaaS, he integrado pipelines de datos en tiempo real y modelos orientados a la alta disponibilidad. Si la ingesta es limpia y la arquitectura es observable, el negocio toma decisiones sin demoras.",
+    "p3": "Mi enfoque actual está en la resiliencia operativa: observabilidad real, contratos estrictos y automatización para que desplegar a producción un viernes sea una rutina segura y sin estrés.",
+    "interests": {
+      "readingTitle": "¿Qué estoy leyendo?",
+      "gamingTitle": "¿Qué estoy jugando?",
+      "listeningTitle": "¿Qué estoy escuchando?",
+      "prev": "Anterior",
+      "next": "Siguiente",
+      "books": [
+        { "title": "Dune", "author": "Frank Herbert", "cover": "/dune.jpg" }
+      ],
+      "games": [
+        { "name": "The Blood of the Dawnwalker", "cover": "/blood_of_dawnwalker.jpg" },
+        { "name": "Battlefield 6", "cover": "/battlefield6.jpg" },
+        { "name": "Elder Scrolls Online", "cover": "/TESO.jpg" }
+      ],
+      "spotifySrc": "https://open.spotify.com/embed/track/2iXoZ4qfHQ4zfXpLo5RH0m?utm_source=generator",
+      "spotifyTitle": "Reproductor de Spotify"
+    }
+  },
+  "stack": {
+    "label": "STACK TÉCNICO",
+    "title": "Experiencia técnica",
+    "sub": "El stack que uso para llevar servicios rápidos y estables a producción.",
+    "groups": [
+      { "name": "Desarrollo Backend", "items": ["Java", "Spring Boot", "Quarkus", "Python", "Node", "MCP", "FastAPI", "MAF"] },
+      { "name": "Bases de datos", "items": ["PostgreSQL", "SQL Server", "MongoDB", "Redis", "MySQL", "DynamoDB"] },
+      { "name": "Cloud y DevOps", "items": ["Azure", "AWS", "Docker", "Azure DevOps", "Maven", "Kubernetes", "GitHub Actions"] },
+      { "name": "Frontend", "items": ["React", "Thymeleaf", "JavaScript", "TypeScript", "Next.js", "HTML", "CSS", "jQuery"] },
+      { "name": "Herramientas y utilidades", "items": ["Git", "GitHub", "Postman", "Jira"] },
+      { "name": "Arquitectura", "items": ["Microservicios", "Basada en eventos", "APIs REST", "Serverless"] }
+    ]
+  },
+  "exp": {
+    "label": "EXPERIENCIA",
+    "title": "Trayectoria profesional",
+    "sub": "10+ años construyendo sistemas que sostienen banca y SaaS en producción.",
+    "cv": {
+      "file": "CURRICULUM_VITAE.PDF",
+      "meta": "PDF",
+      "cta": "Descargar CV",
+      "href": "/cv-eliezer-salas-es.pdf"
+    },
+    "aside": {
+      "eduTitle": "Grado",
+      "edu": "Licenciado en Ciencias de la Computación",
+      "school": "Universidad de Carabobo",
+      "certTitle": "Certificaciones",
+      "certNote": "Próximamente",
+      "langTitle": "Idiomas",
+      "langs": [
+        { "l": "Español", "v": "Nativo" },
+        { "l": "Inglés", "v": "Fluido" }
+      ]
+    },
+    "jobs": [
+      {
+        "period": "2021 - Actual",
+        "role": "Senior Software Architect & Backend Engineer",
+        "co": "NTT Data",
+        "place": "Lima, Perú",
+        "desc": "",
+        "bullets": [
+          "Arquitectura y desarrollo de agentes conversacionales para onboarding y soporte en Credicorp Capital.",
+          "Diseño y despliegue de arquitectura regional de microservicios abarcando 5 países.",
+          "Automatización de procesos críticos de backend: sincronización masiva de clientes y motores de encriptación de documentos.",
+          "Integración de facturación electrónica DTE conectada con la Bolsa de Chile.",
+          "Procesamiento de eventos en tiempo real para optimizar la plataforma de Loyalty de BCP."
+        ],
+        "stack": ["Java", "Spring Boot", "Azure", "Azure APIM", "Azure AKS", "Azure Data Factory", "Azure Functions", "Python", "FastAPI", "Microsoft Agent Framework", "MCP"],
+        "highlights": [
+          { "v": "5 países", "d": "Operaciones y despliegues estandarizados en Chile, Perú, Colombia, Panamá y USA." },
+          { "v": "Tiempo real", "d": "Eventos de consumo procesados para fidelización personalizada." },
+          { "v": "IA Conversacional", "d": "Acompañamiento durante el proceso de onboarding de colaboradores de Credicorp Capital." }
+        ]
+      },
+      {
+        "period": "2019 - 2021",
+        "role": "Java Developer",
+        "co": "Support and Development",
+        "place": "Lima, Perú",
+        "desc": "",
+        "bullets": [
+          "Desarrollo de aplicación para envío masivo de correos personalizados usando Spring Boot y AWS SES.",
+          "Construcción de sistema de planificación y control de producción con Spring Boot, AWS y Thymeleaf."
+        ],
+        "stack": ["Java", "Spring Boot", "AWS", "PostgreSQL", "Thymeleaf"],
+        "highlights": []
+      },
+      {
+        "period": "2015 - 2018",
+        "role": "Java Developer",
+        "co": "SLUXNET",
+        "place": "Valencia, Venezuela",
+        "desc": "Desarrollo de sistemas de facturación para plataformas de apuestas y migración de ERP de Ford Motors utilizando Java y PostgreSQL.",
+        "bullets": [],
+        "stack": ["Java", "PostgreSQL", "Tomcat"],
+        "highlights": []
+      }
+    ]
+  },
+  "contact": {
+    "label": "CONTACTO",
+    "title": "Iniciemos algo extraordinario",
+    "sub": "Abierto a retos de arquitectura, optimización de rendimiento y resolución de problemas complejos. ¿Tienes en mente una plataforma exigente, un refactor crítico o un sistema de alta escala? Hablemos de cómo construirlo.",
+    "emailLabel": "Correo",
+    "telegramLabel": "Telegram",
+    "telegramUser": "@EliezerSG",
+    "locationLabel": "Ubicación",
+    "location": "Lima, Perú",
+    "availability": "Disponible para nuevos proyectos. Respondo en un día hábil.",
+    "name": "Nombre",
+    "namePh": "Tu nombre",
+    "email": "Correo",
+    "emailPh": "tu@empresa.com",
+    "msg": "Mensaje",
+    "msgPh": "Cuéntame qué construyes y qué desafío técnico enfrentas.",
+    "send": "Enviar mensaje",
+    "emailBtn": "Email Eliezer",
+    "telegramBtn": "Chat on Telegram",
+    "errName": "Cuéntame tu nombre (mínimo 2 letras).",
+    "errEmail": "Revisa el correo, parece incompleto.",
+    "errMsg": "Escríbeme al menos dos líneas sobre tu idea o proyecto.",
+    "errMsgLong": "El mensaje debe tener entre 10 y 500 caracteres, sin código.",
+    "errToken": "Completa la verificación humana antes de enviar.",
+    "errTokenRetry": "La verificación expiró o falló. Complétala de nuevo.",
+    "errRateLimit": "Demasiados intentos. Inténtalo de nuevo en una hora.",
+    "errServer": "No se pudo enviar. Inténtalo más tarde.",
+    "sending": "Enviando…",
+    "sent": "Mensaje enviado. Te respondo en un día hábil."
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados."
+  },
+  "faq": {
+    "label": "PREGUNTAS FRECUENTES",
+    "items": [
+      {
+        "q": "¿Quién es Eliezer Salas?",
+        "a": "Soy Eliezer Salas, arquitecto de software senior con más de 10 años diseñando <fowler>microservicios</fowler>, datos en tiempo real e IA conversacional para banca y SaaS en 5 países. Vivo en Lima, Perú y trabajo en remoto."
+      },
+      {
+        "q": "¿Qué hace un arquitecto de software?",
+        "a": "Defino la estructura de los sistemas que van a producción: límites de servicios, contratos de API, flujos de datos y observabilidad. Aplico principios de diseño resiliente respaldados por marcos como el <azure>Azure Well-Architected Framework</azure> para asegurar escalabilidad y estabilidad desde el día uno."
+      },
+      {
+        "q": "¿Está disponible para trabajo remoto?",
+        "a": "Sí, estoy disponible para roles y consultorías remotas a nivel global. Puedes escribirme directamente o <contact>agendar una reunión</contact> para conversar sobre tu proyecto o idea."
+      },
+      {
+        "q": "¿Con qué tecnologías trabaja?",
+        "a": "Trabajo con Java y <springboot>Spring Boot</springboot> como núcleo backend, Python y FastAPI, Azure y AWS, PostgreSQL y Redis, Kubernetes y Docker, además del estándar <mcp>Model Context Protocol (MCP)</mcp> para agentes de IA."
+      },
+      {
+        "q": "¿Qué experiencia tiene en banca?",
+        "a": "He desplegado microservicios en 5 países (Chile, Perú, Colombia, Panamá y USA), agentes conversacionales para Credicorp Capital, eventos en tiempo real para la plataforma Loyalty de BCP y facturación DTE con la Bolsa de Chile."
+      },
+      {
+        "q": "¿Cómo puedo contactarlo?",
+        "a": "Escríbeme a <email>esalas.facyt@gmail.com</email> o por Telegram <telegram>@EliezerSG</telegram>. Respondo en un día hábil."
+      }
+    ]
+  }
+}
