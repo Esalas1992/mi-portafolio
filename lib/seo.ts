@@ -4,8 +4,23 @@ import { xDefaultLang } from "@/lib/i18n";
 import esMessages from "@/messages/es.json";
 import enMessages from "@/messages/en.json";
 
-export const SITE_URL = "https://esalas.dev";
-export const SITE_NAME = "esalas.dev";
+function getBaseUrl(): string {
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
+    return process.env.NEXT_PUBLIC_SITE_URL.startsWith("http")
+      ? process.env.NEXT_PUBLIC_SITE_URL
+      : `https://${process.env.NEXT_PUBLIC_SITE_URL}`;
+  }
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  return "https://esalasdev.vercel.app";
+}
+
+export const SITE_URL = getBaseUrl();
+export const SITE_NAME = "esalasdev.vercel.app";
 
 const seoCopy: Record<
   Lang,

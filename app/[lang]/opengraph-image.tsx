@@ -3,7 +3,7 @@ import { isLang } from "@/lib/i18n";
 
 export const runtime = "nodejs";
 
-export const alt = "Eliezer Salas | Senior Software Architect — esalas.dev";
+export const alt = "Eliezer Salas | Senior Software Architect — esalasdev.vercel.app";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -11,12 +11,12 @@ const copy = {
   es: {
     eyebrow: "> Hola, soy",
     role: "Senior Software Architect — Microservicios, Cloud e IA",
-    foot: "Disponible remoto global · esalas.dev/es",
+    foot: "Disponible remoto global · esalasdev.vercel.app/es",
   },
   en: {
     eyebrow: "> Hello, I'm",
     role: "Senior Software Architect — Microservices, Cloud & AI",
-    foot: "Open to global remote opportunities · esalas.dev/en",
+    foot: "Open to global remote opportunities · esalasdev.vercel.app/en",
   },
 } as const;
 
